@@ -29,8 +29,18 @@ class Point:
         self.x += offsetx
         self.y += offsety
 
+    '''O método __add__ entra em ação quando o objeto é somado a algum valor, como:
+            point + 2
+              ou
+            point + point2
+    '''
+    def __add__(self, other):
+        if type(other) == Point:
+            return Point(self.x + other.x, self.y + other.y)
+        else:
+            return Point(self.x + other, self.y + other)
 
-''' Dessa forma é feita a instância de um objeto e o uso de seus métodos: '''
+''' Dessa forma é feita a instância de um objeto e o uso de seus métodos: 
 point_1 = Point()
 point_1.setx(5)
 point_1.sety(4)
@@ -38,3 +48,4 @@ print(point_1.get())
 point_1.move(5, 1)
 
 point_2 = Point(1, -1)
+'''
